@@ -28,9 +28,9 @@ class MetroStation(models.Model):
 
 
 class House(models.Model):
-    _type = models.CharField(max_length=30)
+    type = models.CharField(max_length=30)
     number = models.IntegerField()
-    street = models.IntegerField
+    street = models.CharField(max_length=60)
     district = models.ForeignKey(District, on_delete=models.CASCADE)
 
 
@@ -38,7 +38,7 @@ class Apartment(models.Model):
     number = models.IntegerField()
     floor = models.IntegerField()
     entrance = models.CharField(max_length=30)
-    square = models.IntegerField()
+    square = models.FloatField()
     rooms_amount = models.IntegerField()
     description = models.CharField(max_length=150)
     seller_type = models.CharField(max_length=30)
@@ -51,3 +51,5 @@ class UserApartmentFavorites(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     apartment = models.ForeignKey(Apartment, on_delete=models.CASCADE)
 
+
+# Надо будет потом вынести в константы длины строк
