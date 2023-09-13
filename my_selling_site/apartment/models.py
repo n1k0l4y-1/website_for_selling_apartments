@@ -54,4 +54,3 @@ class UserApartmentFavorites(models.Model):
     apartment = models.ForeignKey(Apartment, on_delete=models.CASCADE)
 
 
-# Надо будет потом вынести в константы длины строк (max_lenght) - done
